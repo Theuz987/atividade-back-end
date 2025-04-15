@@ -40,6 +40,27 @@ app.post("/eventos", (req, res) =>{
     res.status(201).location(`/eventos/${id}`).send();
 })
 
+app.put("/eventos/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const evento = eventos.find(evento => evento.id === id);
+
+    if (!evento) {
+        return res.status(404).send();
+    }
+
+    const { nome, data, local } = req.body;
+
+    if ((nome && data && local) || (!nome && !data && !local)) {
+        return res.status(404).send("Envie apenas 'nome' ou 'preco'.");
+    }
+
+    if (nome) evento.nome = nome;
+    if (data) evento.data = data;
+    if (local) evento.local = local;
+
+    res.status(200).send();
+});
+
 app.listen(4001, () => {
     console.log("REST API iniciada");
   });
