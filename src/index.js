@@ -9,13 +9,16 @@ app.get('/', (req, res) => {
 });
 
 const eventos = [
-    {nome: "GeekXperience",
+    {id: 1,
+    nome: "GeekXperience",
     data: 26/8/2025,
     local: "Araraquara"},
-    {nome: "Campus Party",
+    {id: 2,
+    nome: "Campus Party",
     data: 7/10/2025,
     local: "Ribeirão Preto"},
-    {nome: "ComicConXperience",
+    {id: 3,
+    nome: "ComicConXperience",
     data: 13/12/2025,
     local: "São Paulo"},    
 ];
@@ -23,3 +26,10 @@ const eventos = [
 app.get("/eventos", (req, res) => {
     res.json(eventos)
 })
+
+app.get("/eventos/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const produto = eventos.find(evento => evento.id === id);
+    res.json(evento);
+});
+
