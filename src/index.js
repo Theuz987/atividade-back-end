@@ -61,6 +61,23 @@ app.put("/eventos/:id", (req, res) => {
     res.status(200).send();
 });
 
+app.patch("/eventos/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const evento = eventos.find(evento => evento.id === id);
+
+    if (!evento) {
+        return res.status(404).send();
+    }
+
+    const { nome, data, local } = req.body;
+
+    if (nome !== undefined) evento.nome = nome;
+    if (data !== undefined) evento.data = data;
+    if (local !== undefined) evento.data = local;
+
+    res.status(200).send();
+});
+
 app.listen(4001, () => {
     console.log("REST API iniciada");
   });
