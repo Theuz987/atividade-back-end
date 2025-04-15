@@ -78,6 +78,18 @@ app.patch("/eventos/:id", (req, res) => {
     res.status(200).send();
 });
 
+app.delete("/eventos/:id", (req, res)=> {
+    
+    const id = parseInt(req.params.id);
+    const index = eventos.findIndex(evento => evento.id === id);
+   if (index !== -1){
+     eventos.splice(index, 1);
+     res.status(200).send();
+   }else{
+     res.status(404).send();
+  } 
+})
+
 app.listen(4001, () => {
     console.log("REST API iniciada");
   });
