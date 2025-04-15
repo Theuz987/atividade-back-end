@@ -30,7 +30,7 @@ app.get("/eventos", (req, res) => {
 app.get("/eventos/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const produto = eventos.find(evento => evento.id === id);
-    res.json(evento);
+    res.json(eventos);
 });
 
 app.post("/eventos", (req, res) =>{
@@ -65,17 +65,18 @@ app.patch("/eventos/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const evento = eventos.find(evento => evento.id === id);
 
-    if (!evento) {
-        return res.status(404).send();
-    }
+    if (evento) {
 
     const { nome, data, local } = req.body;
 
     if (nome !== undefined) evento.nome = nome;
     if (data !== undefined) evento.data = data;
     if (local !== undefined) evento.data = local;
-
     res.status(200).send();
+}else{
+    res.status(404).send();
+}
+
 });
 
 app.delete("/eventos/:id", (req, res)=> {
