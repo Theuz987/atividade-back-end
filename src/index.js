@@ -33,3 +33,13 @@ app.get("/eventos/:id", (req, res) => {
     res.json(evento);
 });
 
+app.post("/eventos", (req, res) =>{
+    const { nome, data, local } = req.body;
+    const id = eventos.length + 1;
+    produtos.push({nome, data, local});
+    res.status(201).location(`/eventos/${id}`).send();
+})
+
+app.listen(4001, () => {
+    console.log("REST API iniciada");
+  });
