@@ -1,0 +1,30 @@
+{
+  "name": "tutorial-back-end-theuz987",
+  "version": "1.0.0",
+  "description": "![Image](https://cdn-images-1.medium.com/max/800/1*MkjK86cFTeY9h8PeedaP5w.png)",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "npx nodemon --exec \"node .\"  --watch \"src/*.js\" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senacsp-car/tutorial-back-end-Theuz987.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/senacsp-car/tutorial-back-end-Theuz987/issues"
+  },
+  "homepage": "https://github.com/senacsp-car/tutorial-back-end-Theuz987#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
