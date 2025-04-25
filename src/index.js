@@ -71,7 +71,7 @@ app.patch("/eventos/:id", (req, res) => {
 
     if (nome !== undefined) evento.nome = nome;
     if (data !== undefined) evento.data = data;
-    if (local !== undefined) evento.data = local;
+    if (local !== undefined) evento.local = local;
     res.status(200).send();
 }else{
     res.status(404).send();
